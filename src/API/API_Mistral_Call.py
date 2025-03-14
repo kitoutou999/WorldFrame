@@ -22,6 +22,7 @@ class Mistral_Call:
         self.max_tokens = 100
         self.temperature = 0.7
         self.logger = ApiLogger()
+        self.last_response = None
 
         
     def send_request(self, prompt):
@@ -59,7 +60,7 @@ class Mistral_Call:
         
         
     
-    def chat(self, prompt, type="Default", name=uuid.uuid4().hex):
+    def chat(self, prompt, type="Default", name=uuid.uuid4().hex,display=False):
         """
         Envoie une requête à l'API Mistral et retourne la réponse.
         
@@ -71,9 +72,10 @@ class Mistral_Call:
         start = time.time()
         response = self.get_response(prompt) 
         end = time.time()
-        print(f"Prompt: {prompt}")
-        print(f"Réponse: {response}")
-        
+        if display:
+            print(f"Prompt: {prompt}")
+            print(f"Réponse: {response}")
+            
         self.logger.save(prompt,self.last_response, type, name,end-start,os.getenv('COMPUTERNAME')) #Crée des logs des call API
         
     

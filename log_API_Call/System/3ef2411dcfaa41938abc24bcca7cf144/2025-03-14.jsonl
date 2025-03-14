@@ -1,1 +1,0 @@
-{"id": "b167e469b0414961b7321e778aefc860", "timestamp": "2025-03-14 14:39:51", "model": "ministral-3b-latest", "question": "Say only 'hello world'", "content": "Hello world!", "duration": 0.2335958480834961, "system": "DESKTOP-7L5CDS1", "tokens": {"prompt": 9, "completion": 3, "total": 12, "average_price": 4.8e-07}}
